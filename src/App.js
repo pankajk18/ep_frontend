@@ -104,6 +104,13 @@ function App() {
               />
               <Route path="/fair-practice" element={<FairPracticesCode />} />
               <Route path="/code-of-conduct" element={<CodeOfConduct />} />
+
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:slug" element={<BlogDetailsNew />} />
+              <Route
+                path="/blog/category/:category"
+                element={<BlogCategories />}
+              />
             </Route>
 
             <Route path="/apply-now" element={<ApplyNow />}></Route>
@@ -115,10 +122,6 @@ function App() {
               path="/redirect-to-journey"
               element={<RedirectToJourney />}
             />
-
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/blog/:slug" element={<BlogDetailsNew />} />
-            <Route path="/blog/category/:slug" element={<BlogCategories />} />
 
             <Route path="/" element={<Layout />}>
               <Route path="/journey" element={<NewDashboard />} />

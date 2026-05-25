@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import aboutTop from "../../assets/blog-banner-thum.png";
+import React from "react";
+import HomeFilledIcon from "@mui/icons-material/HomeFilled";
 import pic from "../../assets/banner_lms.jpg.jpeg";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import SwitchAccountIcon from "@mui/icons-material/SwitchAccount";
@@ -8,95 +8,87 @@ import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import appThum from "../../assets/loan-thum.png";
 
 import RecentPost from "./component/RecentPost";
-import Tranding from "./component/Tranding";
+import Trending from "./component/Trending";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 
 export default function BlogDetailsNew() {
   const { slug } = useParams();
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
-  const [catData, setCatData] = useState("");
 
-  useEffect(() => {
-    if (!slug) return;
-    setLoading(true);
-    fetch(`https://api.crmpaisa.in/get-blogs-data/${slug}`)
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error("Failed to fetch data");
-        }
-        return res.json();
-      })
-      .then((result) => {
-        setData(result.data || []);
-        setLoading(false);
-      })
-      .catch((err) => {
-        setError(err.message);
-        setLoading(false);
-      });
-  }, [slug]);
+  const { data: blog } = useQuery({
+    queryKey: ["blog", slug],
+    queryFn: async () => {
+      const res = await axios.get(
+        `https://api.crmpaisa.in/get-blogs-data/${slug}`,
+      );
+      return res.data;
+    },
+    enabled: !!slug, // ✅ only run if slug is available
+  });
 
-  useEffect(() => {
-    fetch("https://api.crmpaisa.in/get-blogs-category-count")
-      .then((result) => {
-        if (!result.ok) {
-          throw new Error("Failed to fetch data");
-        }
-        return result.json();
-      })
-      .then((result) => {
-        setCatData(result.data || []);
-        // setLoading(false);
-      });
-  }, []);
+  //   const blogCategories = blog?.categories || [];
+  const data = blog?.data;
+
+  const { data: categories } = useQuery({
+    queryKey: ["categories", slug],
+    queryFn: async () => {
+      const res = await axios.get(
+        `https://api.crmpaisa.in/get-blogs-category-count`,
+      );
+      return res.data?.data || [];
+    },
+  });
 
   return (
     <>
-      {data.length === 0 ? (
+      {data?.length === 0 ? (
         <p>Not found</p>
       ) : (
         <div className="container" style={{ marginTop: "120px" }}>
-          {data.map((item) => (
-            <>
+          {data?.map((item) => (
+            <React.Fragment key={item.id}>
               <div key={item.id} className="col-12">
-                <span className="fs-5 fw-medium text-muted">
+                <span className="fs-6 fw-medium text-muted">
                   <Link to={"/"} className="text-decoration-none text-black">
-                    <span className="fw-semibold">Home </span>{" "}
+                    <span className="fw-medium flex items-center gap-4 ">
+                      <HomeFilledIcon className="text-black mb-1" />
+                      Home{" "}
+                    </span>{" "}
                   </Link>{" "}
                   /{" "}
                   <Link
                     to={"/blog"}
                     className="text-decoration-none text-black"
                   >
-                    <span className="fw-semibold"> Blog </span>{" "}
+                    <span className="fw-medium"> Blog </span>{" "}
                   </Link>{" "}
-                  / {item.wb_title}
+                  / <span className="font-light"> {item.wb_title}</span>
                 </span>
               </div>
               {/* Category Button */}
-              <div className="row mt-3">
-                <div className="col-12">
-                  <button className="btn btn-outline-secondary rounded-pill px-3 py-2 ms-bg-secondary text-white fw-medium">
-                    {item.wb_blog_category_name}
-                  </button>
-                </div>
-              </div>
+
               <div className="row mt-4 ">
+                <div className="row mt-4">
+                  <div className="col-12">
+                    <button className="btn btn-outline-secondary rounded-pill px-3 py-2 ms-bg-secondary text-white fw-medium">
+                      {item.wb_blog_category_name}
+                    </button>
+                  </div>
+                </div>
                 {/* Left Content */}
                 <div className="col-lg-8 col-12 ">
                   <h1 className="fw-bold pt-3">{item.wb_title}</h1>
-                  <h2
-                    className="my-5"
+                  <h3
+                    className="my-4"
                     style={{
-                      fontSize: "18px",
-                      lineHeight: "35px",
+                      fontSize: "17px",
+                      lineHeight: "30px",
                       borderLeft: "7px solid #1973be",
-                      paddingLeft: "20px",
+                      paddingLeft: "15px",
                     }}
                   >
                     {item.wb_short_description}
-                  </h2>
+                  </h3>
 
                   <div
                     className="row align-items-center pb-3 pt-3 mb-5"
@@ -112,7 +104,7 @@ export default function BlogDetailsNew() {
                           <SwitchAccountIcon className="text-danger" />
                         </div>
                         <div>
-                          <p className="mb-0 fw-bold fs-5 text-muted ">
+                          <p className="mb-0 fw-bold fs-6 text-muted ">
                             EmergencyPaisa
                           </p>
                         </div>
@@ -122,7 +114,7 @@ export default function BlogDetailsNew() {
                     <div className="col-md-6 col-12 text-md-end">
                       <div className="d-flex align-items-center justify-content-md-end gap-2">
                         <CalendarMonthIcon className="text-danger" />
-                        <span className="text-black fs-6">
+                        <span className="text-black fs-12">
                           {item.wb_publish_date}
                         </span>
                         |
@@ -130,9 +122,11 @@ export default function BlogDetailsNew() {
                           <AccessTimeIcon className="text-danger" />
                         </div>
                         <div>
-                          <p className="mb-0 fs-6 text-muted ">
+                          <p className="mb-0 fs-12 text-muted ">
                             Reading Time-{" "}
-                            <span className="fw-medium">4 min</span>
+                            <span className="fw-medium">
+                              {item.wb_reading_time}
+                            </span>
                           </p>
                         </div>
                       </div>
@@ -148,16 +142,19 @@ export default function BlogDetailsNew() {
                   />
 
                   {/* editor section start */}
-                  <p className="pt-5 fs-5">{item.wb_long_description}</p>
-                  {/* end */}
-
-                  {/* trending or populer blog start */}
-                  <Tranding />
+                  <div
+                    className="pt-5 fs-5"
+                    dangerouslySetInnerHTML={{
+                      __html: item?.wb_long_description,
+                    }}
+                  ></div>
                   {/* end */}
                 </div>
-
                 {/* Right Sidebar */}
-                <div className="col-lg-4 col-12 mt-3 mt-lg-0 p-5">
+                <div
+                  className="col-lg-4 col-12 mt-3 mt-lg-0 p-2 p-md-5 position-sticky"
+                  style={{ top: "100px" }}
+                >
                   <div
                     className="app-screen mb-5 border"
                     style={{ borderRadius: "10px" }}
@@ -180,7 +177,7 @@ export default function BlogDetailsNew() {
                       </div>
                     </div>
                   </div>
-                  <div className="p-4 bg-light rounded shadow-sm">
+                  <div className="p-2 p-md-4 bg-light rounded shadow-sm">
                     {/* categories */}
                     <div className="d-flex align-items-center mb-4">
                       <div
@@ -192,10 +189,11 @@ export default function BlogDetailsNew() {
                       ></div>
                       <h4 className="ms-3 mb-0 fw-bold fs-5">CATEGORIES</h4>
                     </div>
-                    {catData.map((catList, index) => (
+                    {categories?.map((catList, index) => (
                       <Link
                         className="text-decoration-none fw-medium text-black"
                         to={`/blog/category/${catList.category_name}`}
+                        key={catList.category_id}
                       >
                         <li
                           className="pb-2"
@@ -205,8 +203,13 @@ export default function BlogDetailsNew() {
                           }}
                           key={index}
                         >
-                          <span> {catList.category_name}</span>{" "}
-                          <span className="ms-bg-secondary px-3 py-1 text-white rounded-2">
+                          <span className=""> {catList.category_name}</span>{" "}
+                          <span
+                            className="ms-bg-secondary px-3 py-1 text-white rounded-2"
+                            style={{
+                              maxWidth: "50px",
+                            }}
+                          >
                             {catList.total_count}
                           </span>
                         </li>
@@ -215,16 +218,14 @@ export default function BlogDetailsNew() {
 
                     {/* end */}
                   </div>
-                  {/* Recent post */}
+
+                  {/* Recent Post */}
                   <div className="mt-5">
-                    <h3 className="fw-bold fs-5">Recent Blogs</h3>
                     <RecentPost />
                   </div>
-                  {/* end */}
 
-                  {/* apply Now */}
-
-                  <div className=" my-5">
+                  {/* Explore venture */}
+                  <div className=" my-4">
                     <div className="p-4 rounded bg-light shadow-lg border">
                       {/* Content */}
                       <div className="row">
@@ -254,17 +255,16 @@ export default function BlogDetailsNew() {
                       </div>
                     </div>
                   </div>
-
-                  {/* end */}
                 </div>
               </div>
-              {/* <h1>{item.wb_title}</h1> */}
-            </>
+            </React.Fragment>
           ))}
+
+          <div className="border-bottom py-4"></div>
+
+          <Trending />
         </div>
       )}
-
-      <div className="container mt-4"></div>
     </>
   );
 }

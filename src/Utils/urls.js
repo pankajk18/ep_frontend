@@ -45,4 +45,8 @@ export default {
     ENHANCED_OFFER: "lead-service/get-enhanced-loan-offer",
     ACCEPT_ENHANCED_OFFER: "lead-service/enhanced-loan-offer-decision",
   },
+
+  BLOG: {
+    GET_ALL_BLOGS: "get-blogs-data",
+  },
 };

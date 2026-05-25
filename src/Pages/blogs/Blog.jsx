@@ -1,40 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import aboutTop from "../../assets/blog-banner-thum.png";
-import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
-import { Link } from "react-router-dom";
-import AccessTimeIcon from "@mui/icons-material/AccessTime";
-import SwitchAccountIcon from "@mui/icons-material/SwitchAccount";
-
-import defaultImg from "../../assets/emp-blog-thum.png";
+import useBlogs from "./hooks/useBlogs";
+import BlogListingCard from "./component/BlogListingCard";
 
 export default function Blog() {
-  const [blogData, setBlogData] = useState([]);
-  const [loading, setLoading] = useState("");
-  const [error, setError] = useState("");
-
-  const getBlogData = async () => {
-    try {
-      setLoading(true);
-
-      const res = await fetch("https://api.crmpaisa.in/get-blogs-data");
-
-      if (!res.ok) {
-        throw new Error("Failed to fetch data");
-      }
-
-      const result = await res.json();
-
-      setBlogData(result?.data || []);
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    getBlogData();
-  }, []);
+  const { blogs } = useBlogs();
+  const allBlogs = blogs?.data || [];
 
   return (
     <>
@@ -82,62 +53,17 @@ export default function Blog() {
 
           {/* Blog Grid */}
           <div className="row g-4">
-            {blogData.map((blog) => (
-              <div className="col-md-6 col-lg-4" key={blog.wb_id}>
-                <div className="card h-100 shadow-sm">
-                  <img
-                    src={
-                      blog?.wb_thumb_image_url
-                        ? `https://crmpaisa.com/direct-document-file/${blog.wb_thumb_image_url}`
-                        : defaultImg
-                    }
-                    alt={blog?.wb_title || "Blog "}
-                  />
-
-                  <div className="card-body pt-4" style={{}}>
-                    <div className="">
-                      <div className="d-flex justify-content-between">
-                        <span className="fw-semibold">
-                          {" "}
-                          <SwitchAccountIcon className="text-danger" />{" "}
-                          EmergencyPaisa{" "}
-                        </span>
-
-                        <span className="fs-6 fw-medium text-danger">
-                          {" "}
-                          {blog.wb_publish_date}
-                        </span>
-                      </div>
-                      {/* <span className="ms-bg-primary mb-2 px-2 py-1 rounded-1 shadow-lg text-white fw-semibold ">
-                                                {blog.wb_blog_category_name}
-                                            </span> */}
-                    </div>
-
-                    <h5 className="card-title mt-3 fs-5 fw-semibold text-lowercase ">
-                      {blog.wb_title}
-                    </h5>
-
-                    <p className="card-text text-muted text-lowercase">
-                      {/* {blog.wb_short_description} */}
-                      {blog?.wb_short_description?.slice(0, 90)}...
-                    </p>
-                    <span className="fs-6 fw-medium">
-                      {" "}
-                      <AccessTimeIcon className="text-danger" /> Reading time: 4
-                      Minitus{" "}
-                    </span>
-                  </div>
-
-                  <div className="card-footer bg-white border-0 pb-4 ">
-                    <Link to={`/blog/${blog.wb_slug}`}>
-                      <button className="btn btn-lg ms-bg-secondary text-white fs-6 rounded-sm shadow-lg fw-medium">
-                        Read More <ArrowOutwardIcon />
-                      </button>
-                    </Link>
-                  </div>
+            {allBlogs &&
+              allBlogs?.length > 1 &&
+              allBlogs?.map((blog) => (
+                <div className="col-md-6 col-lg-4" key={blog.wb_id}>
+                  <BlogListingCard blog={blog} />
                 </div>
-              </div>
-            ))}
+              ))}
+
+            {allBlogs?.length === 0 && (
+              <p className="text-center text-gray-500">No blogs found.</p>
+            )}
           </div>
         </div>
       </div>

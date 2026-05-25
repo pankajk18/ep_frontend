@@ -1,45 +1,39 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
-import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
-import defaultImg from "../../../assets/emp-blog-thum.png";
+import useBlogs from "../hooks/useBlogs";
 
 export default function RecentPost() {
-  const [blogData, setBlogData] = useState([]);
-  const [loading, setLoading] = useState("");
-  const [error, setError] = useState("");
+  const { blogs } = useBlogs();
 
-  const getBlogData = async () => {
-    try {
-      setLoading(true);
-      const res = await fetch("https://api.crmpaisa.in/get-blogs-data");
-      if (!res.ok) {
-        throw new Error("Failed to fetch data");
-      }
-      const result = await res.json();
-      setBlogData(result?.data || []);
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    getBlogData();
-  }, []);
+  const blogData =
+    blogs?.data && blogs?.data?.length > 5
+      ? blogs?.data?.slice(0, 5)
+      : blogs?.data || [];
   return (
     <>
-      <div className="row g-4">
+      <h3 className="fw-bold fs-5">Recent Blogs</h3>
+      <div className="row g-2">
         {blogData.map((blog) => (
-          <div className="col-md-12 col-lg-12" key={blog.wb_id}>
+          <div
+            className="col-md-12 col-lg-12 border-bottom pb-4"
+            key={blog.wb_id}
+          >
             <div className="">
               <div className="card-body pt-4" style={{}}>
-                <span className="text-danger fw-semibold ">
+                <Link
+                  to={`/blog/category/${blog.wb_category_id}`}
+                  className="text-danger fw-semibold text-decoration-none"
+                >
                   {blog.wb_blog_category_name}
-                </span>
-                <h5 className="card-title fs-5 fw-semibold text-lowercase pt-2 ">
-                  {blog.wb_title}
+                </Link>
+                <h5 className="card-title fs-5 fw-semibold text-lowercase pt-2 text-capitalize ">
+                  <Link
+                    to={`/blog/${blog.wb_slug}`}
+                    className="card-title fs-5 fw-semibold text-lowercase pt-2 text-capitalize text-decoration-none"
+                  >
+                    {blog.wb_title}
+                  </Link>
                 </h5>
                 <div className="d-flex justify-content-between align-items-center">
                   <small className="fs-6 fw-medium mt-3">

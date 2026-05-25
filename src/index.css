@@ -1,13 +1,32 @@
+@import url("./Pages/blogs/blog.css");
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family:
+    source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.truncate-2-lines {
+  display: -webkit-box; /* Required for line-clamp to work */
+  -webkit-line-clamp: 2; /* Limits text to exactly 2 lines */
+  -webkit-box-orient: vertical; /* Sets the direction of the box */
+  overflow: hidden; /* Hides any text beyond the 2nd line */
+}
+.truncate-3-lines {
+  display: -webkit-box; /* Required for line-clamp to work */
+  -webkit-line-clamp: 3; /* Limits text to exactly 3 lines */
+  -webkit-box-orient: vertical; /* Sets the direction of the box */
+  overflow: hidden; /* Hides any text beyond the 3rd line */
+}
+
+.fs-12 {
+  font-size: 12px;
 }
