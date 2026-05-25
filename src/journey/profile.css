@@ -1,0 +1,95 @@
+.left-box {
+    width: 350px;
+    padding: 20px 20px 20px 0;
+    position: fixed;
+    top: 20px;
+    height: 100vh;
+    overflow-y: auto;
+    flex-shrink: 0;
+    border-right: 1px solid #ccc;
+
+}
+
+.profile-inner {
+    border-radius: 10px;
+    background-color: #E7ECF2;
+    padding: 20px;
+}
+
+.profile-pic {
+    text-align: center;
+}
+
+.right-box {
+    flex: 1;
+    overflow-y: auto;
+    background-color: #fff;
+    margin-top: 2.2rem;
+    padding-left: 360px;
+    overflow: hidden;
+}
+
+.panel {
+    padding-left: 14px;
+    margin-top: 10px;
+}
+
+.top-panel {
+    border-radius: 10px 10px 0 0;
+    background-color: #E7ECF2;
+    padding: 5px 10px;
+}
+
+.top-panel h4 {
+    margin-left: 10px;
+}
+
+.info-panal {
+    border: 1px solid #ddd;
+}
+
+.dektop-hide {
+    display: none;
+}
+
+.bg-white {
+    background-color: #fff;
+}
+
+.sidebar {
+    background-color: #26b9db;
+    color: #fff;
+    height: 100%;
+    left: -80%;
+    /* padding: 1rem; */
+    position: fixed;
+    top: 0;
+    transition: left .3s ease;
+    width: 80%;
+    z-index: 9000;
+}
+
+.sidebar.open {
+    left: 0;
+}
+.close-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    float: right;
+    margin-right: 20px;
+    font-size: 3rem;
+  
+}
+.dektop-none{
+    display: none;
+}
+
+
+
+@media (max-width: 990px) {
+    .mobile-show {
+        display: block;
+    }
+}

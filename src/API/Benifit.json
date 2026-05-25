@@ -1,0 +1,116 @@
+{
+    "benifitData":[
+        {
+            "ben_id":"01",
+            "ben_name":"No hidden rates",
+            "ben_dis":"Ensure affordability with zero hidden rates from Suburban Finance Limited, one of the best loan providers in Delhi. ",
+            "img":"no-hidden-charge.png"
+        },
+        {
+            "ben_id":"02",
+            "ben_name":"Minimum documents",
+            "ben_dis":"Enjoy a hassle-free documentation process with minimum paperwork from  Suburban finance- a leading digital lending platform.",
+             "img":"document.png"
+        },
+        {
+            "ben_id":"03",
+            "ben_name":"Instant approval",
+            "ben_dis":"We empower salaried individuals with cash support to help you tackle unexpected financial needs swiftly and efficiently.",
+            "img":"approve.png"
+        },
+    
+        {
+            "ben_id":"04",
+            "ben_name":"Fund within 1 hours",
+            "ben_dis":"Bridging cash-flow gaps quickly and easily. The loan amount is credited to your account within 1 hours. ",
+            "img":"inr.png"
+        }
+
+    ],
+
+    "eligibility":[
+        {
+            "eligibility_id":"01",
+            "eligibility_title":"No hidden rates",
+            "eligibility_dis":"Ensure affordability with zero hidden rates from Suburban Finance Limited, one of the best loan providers in Delhi. To know more, read our ",
+            "eligibility_icon":"/banner/pie-chart.png"
+        },
+        
+        {
+            "eligibility_id":"02",
+            "eligibility_title":"2No hidden rates",
+            "eligibility_dis":"Ensure affordability with zero hidden rates from Suburban Finance Limited, one of the best loan providers in Delhi. To know more, read our ",
+            "eligibility_icon":"/banner/pie-chart.png"
+        },
+        {
+            "eligibility_id":"03",
+            "eligibility_title":"3 No hidden rates",
+            "eligibility_dis":"Ensure affordability with zero hidden rates from Suburban Finance Limited, one of the best loan providers in Delhi. To know more, read our ",
+            "eligibility_icon":"/banner/pie-chart.png"
+        },
+        {
+            "eligibility_id":"04",
+            "eligibility_title":" 4 No hidden rates",
+            "eligibility_dis":"Ensure affordability with zero hidden rates from Suburban Finance Limited, one of the best loan providers in Delhi. To know more, read our ",
+            "eligibility_icon":"/banner/pie-chart.png"
+        }
+
+    ],
+
+    "termList":[
+        {
+            "id":"01",
+            "title":"Monthly Interest Rate",
+            "val":"2.9166%"
+        },
+        {
+            "id":"02",
+            "title":"Offered Annual % Rate",
+            "val":"35% (Fixed)"
+        },
+        {
+            "id":"03",
+            "title":"Tenure/Repayment",
+            "val":"1 - 3 Years"
+        },
+        {
+            "id":"04",
+            "title":"Loan Amount",
+            "val":"10,000 - 5,00,000"
+        },
+        {
+            "id":"05",
+            "title":"Processing Fee",
+            "val":"2%"
+        },
+        {
+            "id":"06",
+            "title":"GST on Processing Fee",
+            "val":"18%"
+        }
+    ],
+    "docList":[
+        {
+           "id":"01" ,
+           "name":"Your personal loan application should be completely filled with your current photograph."
+        },
+        {
+            "id":"02" ,
+            "name":"PAN Card required."
+         },
+         {
+            "id":"03" ,
+            "name":"Residence proof - Driving Licence, Voter ID, Passport, Utility Bills (Electricity/Water/Gas), Postpaid/Landline Bill."
+         },
+         {
+            "id":"04" ,
+            "name":"Last 3 months bank statements of the salary account."
+         },
+         {
+            "id":"05" ,
+            "name":"Last 3 months Salary Slips."
+         }
+
+    ]
+
+}

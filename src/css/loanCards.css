@@ -1,0 +1,35 @@
+.loan-card {
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid #e3e6ea;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* Hover Effect */
+.loan-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Rupee Icon */
+.rupee-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #7f1d1d, #1e3a8a);
+  color: #fff;
+  font-size: 22px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+/* Icon glow on hover */
+.loan-card:hover .rupee-icon {
+  box-shadow: 0 0 18px rgba(59, 130, 246, 0.6);
+  transform: scale(1.05);
+}

@@ -1,0 +1,64 @@
+
+.thank-you-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    background-color: #f9f9f9;
+    margin: 0;
+  }
+  
+  .thank-you-content {
+    text-align: center;
+    background-color: #fff;
+    padding: 30px 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 500px; margin: 0 auto;
+  }
+  
+  .thank-you-image-container {
+    margin-bottom: 20px;
+  }
+  
+  .thank-you-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .thank-you-message h2 {
+    font-size: 24px;
+    color: #4caf50;
+    margin-bottom: 10px;
+  }
+  
+  .thank-you-message p {
+    font-size: 16px;
+    color: #666;
+  }
+  
+  .redirect-info p {
+    font-size: 14px;
+    color: #999;
+  }
+  
+  .thank-you-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #8cd9a2;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .thank-you-button:hover {
+    background-color: #79c48d;
+  }
+  
+
+

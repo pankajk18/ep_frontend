@@ -1,0 +1,106 @@
+.features-section {
+    padding: 80px 0;
+}
+
+.feature-card {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 10px 20px;
+    height: 100%;
+    transition: all 0.35s ease;
+    position: relative;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+.feature-card:hover {
+    background-color: #e0ebf4;
+}
+
+.feature-card::before {
+    width: 6px;
+    height: 40px;
+    background-color: #000;
+    border-radius: 0 10px 0 10px;
+    position: absolute;
+    left: 0;
+    top: 32%;
+    content: '';
+}
+
+.feature-card:hover.feature-card::before {
+    background-color: #1973be;
+    height: 40px;
+    width: 6px;
+    border-radius: 0 10px 0 10px;
+    left: -2px;
+}
+
+.feature-card:hover h4 {
+    transform: translateX(10px);
+    transition: all 0.35s ease;
+}
+
+.feature-card h4 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 20px;
+    position: relative;
+    transition: all 0.35s ease;
+    min-height: 50px;
+}
+
+.feature-card p {
+    color: #9ca3af;
+    font-size: 14px;
+    margin-top: 10px;
+    line-height: 1.6;
+}
+
+.icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    color: #cbd5e1;
+    position: relative;
+}
+
+.feature-card:hover .icon {
+
+    transform: rotate(10px);
+    border: 5px solid #1973be;
+}
+
+.feature-card button {
+    border: none;
+    border-radius: 5px;
+    padding: 6px 12px;
+}
+
+.feature-card:hover button {
+    background-color: #1973be;
+    transform: translateX(10px);
+    transition: all 0.35s ease;
+    color: #fff;
+
+
+}
+
+/* grid lines effect */
+
+/* .feature-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.08);
+} */
+
+@media(max-width:768px) {
+
+    .feature-card {
+        padding: 30px 20px;
+    }
+
+}

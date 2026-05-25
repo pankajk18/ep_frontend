@@ -1,0 +1,29 @@
+.left-box {
+    width: 350px;
+    padding: 20px;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    flex-shrink: 0;
+    border-right: 1px solid #ccc;
+}
+
+.right-box {
+    flex: 1;
+    overflow-y: auto;
+    background-color: #fff;
+    margin-top: 2.2rem;
+}
+.panel{
+    padding-left: 14px;
+    margin-top: 10px;
+}
+.top-panel{ border-radius: 10px 10px 0 0; background-color: #E7ECF2; padding: 5px 10px;}
+.top-panel h4{margin-left: 10px;}
+.info-panal{
+    border: 1px solid #ddd;
+}
+.bg-white{
+    background-color: #fff;
+}

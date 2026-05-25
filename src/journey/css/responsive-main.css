@@ -1,0 +1,232 @@
+@media (min-width: 991px) and (max-width: 1024px) {
+
+    .bg-emp,
+    .bg-personalinfo,
+    .bg-calculator,
+    .bg-home,
+    .bg-thanks {
+        background: #fff;
+    }
+
+    .m-p13 {
+        font-size: 13px;
+    }
+   
+    
+
+}
+
+@media only screen and (max-width: 990px) {
+
+    .bg-emp,
+    .bg-personalinfo,
+    .bg-calculator,
+    .bg-home,
+    .bg-thanks {
+        background: #fff;
+    }
+
+    .menu-none {
+        display: none !important;
+    }
+
+    .m-p13 {
+        font-size: 13px;
+    }
+}
+
+@media (min-width: 771px) and (max-width: 1023px) {
+    
+    .wraper-right-box {
+        width: 100%;
+    }
+
+    .upload-doc-wraper li {
+        width: 45%;
+    }
+    .left-box{
+        display: none;
+    }
+    .right-box{
+        padding-left: 0;
+    }
+     .bottom-nav{
+        display: block;
+     }
+      .navbar-toggler{
+        display: none !important;
+    }
+}
+
+@media only screen and (max-width:770px) {
+
+    .container>a {
+    display: block;
+    margin: 0 auto;
+}
+    .bottom-nav,
+    .desktop-none {
+        display: block;
+    }
+
+    .desktop-none p {
+        font-size: 13px;
+        font-weight: 500;
+    }
+
+    .panel {
+        padding-left: 0;
+    }
+
+    .left-box {
+        display: none;
+    }
+
+    .right-box {
+        padding-left: 0;
+    }
+
+    .mobItem>div {
+        padding: 6px 4px;
+    }
+     .navbar-toggler{
+        display: none !important;
+    }
+
+    /* css for vertial tab */
+    .tabs {
+        flex-direction: column;
+    }
+
+    .tab-buttons {
+        flex-direction: row;
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .tab-buttons button {
+        flex: 1;
+        white-space: nowrap;
+    }
+
+    .custome-tab {
+        height: auto !important;
+        position: relative;
+        border-right: none !important;
+    }
+
+    .ml450 {
+        margin-left: 0 !important;
+    }
+
+    .mob-none {
+        display: none;
+    }
+
+    .box-height {
+        margin-top: 0 !important;
+    }
+
+    .wraper-right-box {
+        width: 100% !important;
+        /* padding: 20px; */
+        background: #fff;
+        border-radius: 10px;
+        /* box-shadow: 0 0 10px #ddd; */
+    }
+
+    .nav-link {
+        padding: 0.5rem;
+    }
+
+    .custome-tab.nav-pills .nav-link {
+        height: auto;
+    }
+
+    .ms-icon-size {
+        font-size: 40px !important;
+    }
+
+    .ms-right-border {
+        border-right: none;
+        overflow-y: hidden;
+
+    }
+
+    .upload-doc-wraper li {
+        width: 46%;
+    }
+
+    .upload-doc-wraper li {
+        width: 45%;
+        margin: 1%;
+    }
+
+    .Upload_selfi {
+        flex-direction: column;
+    }
+
+    .thanksmobile {
+        padding-bottom: 40px;
+        display: block;
+
+    }
+
+    .thanks-left {
+        padding: 40px;
+        padding-top: 6rem;
+    }
+
+    .thanks-left h1 {
+        display: none;
+    }
+
+    /* end */
+
+}
+
+@media (min-width: 401px) and (max-width: 650px) {
+    .input-box {
+        width: 32px;
+        margin: 1.5px;
+    }
+
+    .pl-45 {
+        padding-left: 0 !important;
+    }
+
+    .rounded-circle {
+        display: none;
+    }
+
+    .upload-doc-wraper li {
+        width: 100%;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 400px) {
+    .rounded-circle {
+        display: none;
+    }
+
+    .pl-45 {
+        padding-left: 0 !important;
+    }
+
+    .input-box {
+        width: 28px;
+        margin: 1px;
+        height: 35px;
+        border-radius: 0;
+    }
+
+    .upload-doc-wraper li {
+        width: 100%;
+    }
+
+    .left-box {
+        display: none;
+    }
+
+
+}
