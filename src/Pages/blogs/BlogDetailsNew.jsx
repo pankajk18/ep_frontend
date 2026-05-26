@@ -144,7 +144,7 @@ export default function BlogDetailsNew() {
 
                   {/* editor section start */}
                   <div
-                    className="pt-5 fs-5"
+                    className="pt-5 fs-6"
                     dangerouslySetInnerHTML={{
                       __html: item?.wb_long_description,
                     }}
