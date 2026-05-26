@@ -7,8 +7,8 @@ export default function RecentPost() {
   const { blogs } = useBlogs();
 
   const blogData =
-    blogs?.data && blogs?.data?.length > 5
-      ? blogs?.data?.slice(0, 5)
+    blogs?.data && blogs?.data?.length > 4
+      ? blogs?.data?.slice(0, 4)
       : blogs?.data || [];
   return (
     <>
