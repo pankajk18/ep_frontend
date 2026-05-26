@@ -3,40 +3,47 @@ import defaultImg from "../../../assets/emp-blog-thum.png";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import SwitchAccountIcon from "@mui/icons-material/SwitchAccount";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import { Link } from "react-router-dom";
 
 const BlogListingCard = ({ blog }) => {
   return (
-    <div className="card h-100 shadow-sm">
+    <Link
+      to={`/blog/${blog.wb_slug}`}
+      className="card h-100 shadow-sm text-decoration-none blog-listing-card"
+    >
       <img
         src={
           blog?.wb_banner_image_url?.includes("http")
             ? blog.wb_banner_image_url
             : defaultImg
         }
+        className="blog-card-img"
         alt={blog?.wb_title || "Blog "}
-        height={150}
+        // height={150}
         style={{
-          objectFit: "cover",
+          objectFit: "contain",
         }}
       />
 
       <div className="card-body pt-4" style={{}}>
         <div className="">
           <div className="d-flex justify-content-between">
-            <span className="fw-semibold">
+            <span className="fw-semibold fs-14">
               {" "}
-              <SwitchAccountIcon className="text-danger" /> EmergencyPaisa{" "}
+              <SwitchAccountIcon className="text-danger" />{" "}
+              {blog?.wb_blog_category_name}{" "}
             </span>
 
-            <span className="fs-6 fw-medium text-danger">
+            <span className="fs-12 fw-medium text-danger">
               {" "}
+              <CalendarMonthIcon className="text-danger mb-1 mx-1" />
               {blog?.wb_publish_date}
             </span>
           </div>
           {/* <span className="ms-bg-primary mb-2 px-2 py-1 rounded-1 shadow-lg text-white fw-semibold ">
-                                                {blog.wb_blog_category_name}
-                                            </span> */}
+                {blog.wb_blog_category_name}
+            </span> */}
         </div>
 
         <h5 className="card-title mt-3 fs-5 fw-semibold text-capitalize text-lowercase truncate-2-lines ">
@@ -55,13 +62,13 @@ const BlogListingCard = ({ blog }) => {
       </div>
 
       <div className="card-footer bg-white border-0 pb-4 ">
-        <Link to={`/blog/${blog.wb_slug}`}>
+        <Link to={`/blog/${blog.wb_slug}`} className="blog-apply-now-btn">
           <button className="btn btn-lg ms-bg-secondary text-white fs-6 rounded-sm shadow-lg fw-medium">
             Read More <ArrowOutwardIcon />
           </button>
         </Link>
       </div>
-    </div>
+    </Link>
   );
 };
 

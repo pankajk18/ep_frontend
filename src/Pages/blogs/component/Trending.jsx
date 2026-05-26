@@ -159,11 +159,15 @@ export default function Trending() {
           {blogs.map((item, index) => {
             const imageUrl = buildImageUrl(item.wb_thumb_image_url);
             return (
-              <div key={index} className="col-12 px-2">
+              <Link
+                key={index}
+                className="col-12 px-2 text-decoration-none"
+                to={`/blog/${item.wb_slug}`}
+              >
                 <div className="popular-blog-card">
                   <div className="popular-blog-card__image">
                     {imageUrl ? (
-                      <img src={imageUrl} alt={item.wb_title} width={100} />
+                      <img src={imageUrl} alt={item.wb_title} />
                     ) : (
                       <div className="popular-blog-card__placeholder">
                         Popular Blog
@@ -197,7 +201,7 @@ export default function Trending() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             );
           })}
         </Slider>

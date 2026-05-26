@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import FeaturrImg from "../assets/ep_feature_img.webp";
-import { scaleImg } from "../ss";
+import { ayscaleImg as scaleImg } from "../ss";
 import Process from "./Process";
 export default function Feature() {
   const FeatureData = [

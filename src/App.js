@@ -47,7 +47,6 @@ import AggregatorVerify from "./journey/Pages/AggregatorVerify";
 import FairPracticesCode from "./Pages/FairPracticesCode";
 import CodeOfConduct from "./Pages/CodeOfConduct";
 import Blog from "./Pages/blogs/Blog";
-import BlogDetails from "./Pages/blogs/BlogDetails";
 import BlogDetailsNew from "./Pages/blogs/BlogDetailsNew";
 import BlogCategories from "./Pages/blogs/BlogCategories";
 
@@ -105,7 +104,7 @@ function App() {
               <Route path="/fair-practice" element={<FairPracticesCode />} />
               <Route path="/code-of-conduct" element={<CodeOfConduct />} />
 
-              <Route path="/blog" element={<Blog />} />
+              <Route path="/blogs" element={<Blog />} />
               <Route path="/blog/:slug" element={<BlogDetailsNew />} />
               <Route
                 path="/blog/category/:category"

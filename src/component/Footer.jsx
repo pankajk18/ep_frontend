@@ -52,7 +52,7 @@ export default function Footer() {
     { name: "Deletion Policy", path: "/deletion-policy" },
     { name: "Fair Practices Code", path: "/fair-practice" },
     { name: "Code of Conduct", path: "/code-of-conduct" },
-    { name: "Blogs", path: "/blog" },
+    { name: "Blogs", path: "/blogs" },
   ];
 
   return (

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import useBlogs from "../hooks/useBlogs";
@@ -21,12 +21,16 @@ export default function RecentPost() {
           >
             <div className="">
               <div className="card-body pt-4" style={{}}>
-                <Link
-                  to={`/blog/category/${blog.wb_category_id}`}
+                {/* <Link
+                  to={`/blog/category/${blog.wb_category_slug}`}
                   className="text-danger fw-semibold text-decoration-none"
                 >
                   {blog.wb_blog_category_name}
-                </Link>
+                </Link> */}
+
+                <p className="text-danger fw-semibold mb-0">
+                  {blog?.wb_blog_category_name}
+                </p>
                 <h5 className="card-title fs-5 fw-semibold text-lowercase pt-2 text-capitalize ">
                   <Link
                     to={`/blog/${blog.wb_slug}`}

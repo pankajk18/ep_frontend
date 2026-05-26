@@ -11,6 +11,7 @@ import RecentPost from "./component/RecentPost";
 import Trending from "./component/Trending";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import { createSlug } from "./blogs.utils";
 
 export default function BlogDetailsNew() {
   const { slug } = useParams();
@@ -47,8 +48,8 @@ export default function BlogDetailsNew() {
         <div className="container" style={{ marginTop: "120px" }}>
           {data?.map((item) => (
             <React.Fragment key={item.id}>
-              <div key={item.id} className="col-12">
-                <span className="fs-6 fw-medium text-muted">
+              <div key={item.id} className="col-12 ">
+                <span className="fs-6 fw-medium text-muted breadcrumb-blog">
                   <Link to={"/"} className="text-decoration-none text-black">
                     <span className="fw-medium flex items-center gap-4 ">
                       <HomeFilledIcon className="text-black mb-1" />
@@ -57,12 +58,12 @@ export default function BlogDetailsNew() {
                   </Link>{" "}
                   /{" "}
                   <Link
-                    to={"/blog"}
+                    to={"/blogs"}
                     className="text-decoration-none text-black"
                   >
-                    <span className="fw-medium"> Blog </span>{" "}
+                    <span className="fw-medium"> Blogs </span>{" "}
                   </Link>{" "}
-                  / <span className="font-light"> {item.wb_title}</span>
+                  / <span className="font-light fs-14"> {item.wb_title}</span>
                 </span>
               </div>
               {/* Category Button */}
@@ -192,7 +193,7 @@ export default function BlogDetailsNew() {
                     {categories?.map((catList, index) => (
                       <Link
                         className="text-decoration-none fw-medium text-black"
-                        to={`/blog/category/${catList.category_name}`}
+                        to={`/blog/category/${createSlug(catList.category_name)}`}
                         key={catList.category_id}
                       >
                         <li
