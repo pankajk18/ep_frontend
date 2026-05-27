@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import FeaturrImg from "../assets/ep_feature_img.webp";
-import { ayscaleImg as scaleImg } from "../ss";
 import Process from "./Process";
 export default function Feature() {
   const FeatureData = [
@@ -29,24 +28,51 @@ export default function Feature() {
         "Our personal loans are unsecured, eliminating the need for collateral submission as security. ",
     },
   ];
+  //   useEffect(() => {
+  //     const script1 = document.createElement("script");
+  //     script1.src =
+  //       "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js";
+  //     script1.async = true;
+
+  //     script1.onload = () => {
+  //       // b()
+  //       scaleImg();
+  //     };
+
+  //     document.body.appendChild(script1);
+  //     return () => {
+  //       // Clean up: remove the script when the component unmounts
+
+  //       document.body.removeChild(script1);
+  //     };
+  //   }, []);
+
   useEffect(() => {
-    const script1 = document.createElement("script");
-    script1.src =
-      "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js";
-    script1.async = true;
+    const items = document.querySelectorAll(".feature-topic-wrap li");
 
-    script1.onload = () => {
-      // b()
-      scaleImg();
-    };
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
 
-    document.body.appendChild(script1);
+            // optional: animate only once
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.2,
+      },
+    );
+
+    items.forEach((item) => observer.observe(item));
+
     return () => {
-      // Clean up: remove the script when the component unmounts
-
-      document.body.removeChild(script1);
+      items.forEach((item) => observer.unobserve(item));
     };
   }, []);
+
   return (
     <div id="feature" className="feature-ep-wrap mt-5">
       <div className="container">
