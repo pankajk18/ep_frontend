@@ -33,3 +33,74 @@ code {
 .fs-14 {
   font-size: 14px;
 }
+
+/* //Animation a*/
+@keyframes morphRotate {
+  0% {
+    transform: scale(1) rotate(0deg);
+    border-radius: 0%;
+  }
+
+  100% {
+    transform: scale(2) rotate(45deg);
+    border-radius: 50%;
+  }
+}
+
+.el1,
+.el2,
+.el3,
+.el4 {
+  animation: morphRotate 3s ease-in-out infinite alternate;
+}
+
+/* Animation ScaleImg */
+@keyframes subtleRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(2deg);
+  }
+}
+
+.thumb-style-four {
+  animation: subtleRotate 3s ease-in-out infinite alternate;
+}
+
+/* Animation */
+.feature-topic-wrap li {
+  transform: translateX(100px);
+  opacity: 0;
+  transition:
+    transform 1s ease,
+    opacity 1s ease;
+}
+
+/* Active state */
+.feature-topic-wrap li.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Stagger */
+.feature-topic-wrap li:nth-child(1) {
+  transition-delay: 0s;
+}
+
+.feature-topic-wrap li:nth-child(2) {
+  transition-delay: 0.3s;
+}
+
+.feature-topic-wrap li:nth-child(3) {
+  transition-delay: 0.6s;
+}
+
+.feature-topic-wrap li:nth-child(4) {
+  transition-delay: 0.9s;
+}
+
+.feature-topic-wrap li:nth-child(5) {
+  transition-delay: 1.2s;
+}
