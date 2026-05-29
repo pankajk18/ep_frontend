@@ -6,8 +6,6 @@ import { useSelector } from "react-redux";
 import Logo from "../assets/logo.png";
 
 export default function Header() {
-  const brandName = process.env.REACT_APP_COMPANY_N;
-  const brandLogo = process.env.REACT_APP_LOGO;
   const customerDetails = useSelector(
     (state) => state?.customerJourneyDetails?.customerDetails,
   );
