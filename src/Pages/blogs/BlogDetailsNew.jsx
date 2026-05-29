@@ -9,7 +9,7 @@ import SwitchAccountIcon from "@mui/icons-material/SwitchAccount";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 
 import pic from "../../assets/banner_lms.jpg.jpeg";
-import appThum from "../../assets/loan-thum.png";
+import appThum from "../../assets/2.jpeg";
 
 import RecentPost from "./component/RecentPost";
 import Trending from "./component/Trending";
@@ -182,36 +182,23 @@ export default function BlogDetailsNew() {
                 </div>
                 {/* Right Sidebar */}
                 <div
-                  className="col-lg-4 col-12 mt-3 mt-lg-0 p-2 p-md-5 position-sticky"
+                  className="col-lg-4 col-12 mt-0 mt-lg-0 p-2 px-md-5 position-sticky"
                   style={{ top: "100px" }}
                 >
-                  <div
-                    className="app-screen mb-5 border"
+                  <a
+                    href="https://play.google.com/store/apps/details?id=com.suburban.emergency_paisa"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="app-screen mb-5 border text-decoration-none d-block"
                     style={{ borderRadius: "10px" }}
                   >
-                    <img src={appThum} alt="" style={{ width: "100%" }} />
-                    <div className="p-6 w-full" style={{ marginTop: "-10px" }}>
-                      <div
-                        className="p-4"
-                        style={{
-                          background: "#ddd",
-                          borderRadius: "0 0 10px 10px",
-                        }}
-                      >
-                        <h4 className="text pt-3">
-                          Instant Loans at Your Fingertips
-                        </h4>
-                        <a
-                          href="https://play.google.com/store/apps/details?id=com.suburban.emergency_paisa"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="ms-bg-secondary py-3  text-decoration-none d-block rounded-2 text-white fw-bold text-center mt-4"
-                        >
-                          Download App
-                        </a>
-                      </div>
-                    </div>
-                  </div>
+                    <img
+                      src={appThum}
+                      alt="Trusted by 10L+ Happy Customers - Download  Emergency Paisa"
+                      className="rounded"
+                      style={{ width: "100%" }}
+                    />
+                  </a>
                   <div className="p-2 p-md-4 bg-light rounded shadow-sm">
                     {/* categories */}
                     <div className="d-flex align-items-center mb-4">
