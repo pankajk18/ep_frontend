@@ -1,44 +1,24 @@
 import React from "react";
-import aboutTop from "../../assets/blog-banner-thum.png";
 import useBlogs from "./hooks/useBlogs";
 import BlogListingCard from "./component/BlogListingCard";
+import BlogHeader from "./component/BlogHeader";
 
 export default function Blog() {
-  const { blogs } = useBlogs();
-  const allBlogs = blogs?.data || [];
+  const { blogs, loading, error } = useBlogs();
+  const allBlogs = blogs || [];
+
+  if (loading) {
+    return <div className="text-center">Loading blogs...</div>;
+  }
+
+  if (error) {
+    return <div className="text-center text-danger">Error loading blogs.</div>;
+  }
 
   return (
     <>
       {/* Banner Serion */}
-      <div className="ms-hero-banner-sec" style={{ paddingTop: "80px" }}>
-        <div className="container">
-          <div className="row  align-items-center">
-            <div className="col-lg-6">
-              <div className="ms-banner-heading">
-                <span className="ms-bg-secondary py-2 px-4 rounded-2 fs-5">
-                  {" "}
-                  Blogs
-                </span>
-                <h1
-                  className="fw-lighter fs-5 pt-3 fw-medium"
-                  style={{ lineHeight: "30px" }}
-                >
-                  Discover trending topics, expert opinions, and practical
-                  financial advice-all in one place.
-                </h1>
-              </div>
-            </div>
-            <div className="col-lg-6" style={{ textAlign: "right" }}>
-              <img
-                src={aboutTop}
-                alt="EP"
-                className="img-fluid"
-                style={{ marginTop: "30" }}
-              />
-            </div>
-          </div>
-        </div>
-      </div>
+      <BlogHeader />
       {/* End */}
 
       {/* blog list start */}

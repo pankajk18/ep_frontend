@@ -5,12 +5,12 @@ export default {
   // BASE_API_URL : 'http://localhost:3000/api/v1/',
 
   //uat
-  // LMS_API_URL: "https://api.crmpaisa.com/Api/",
-  // BASE_API_URL: "https://microservices.crmpaisa.in/api/v1/", //uat server.
+  LMS_API_URL: "https://api.crmpaisa.com/Api/",
+  BASE_API_URL: "https://microservices.crmpaisa.in/api/v1/", //uat server.
 
   //live
-  BASE_API_URL: "https://microservices.crmpaisa.com/api/v1/", //live server
-  LMS_API_URL: "https://api.crmpaisa.com/Api/",
+  // BASE_API_URL: "https://microservices.crmpaisa.com/api/v1/", //live server
+  // LMS_API_URL: "https://api.crmpaisa.com/Api/",
 
   //  https://api.salaryontime.in/Api/Website/RepeatInstantJourneyController/verifyEkyc
   loan: {

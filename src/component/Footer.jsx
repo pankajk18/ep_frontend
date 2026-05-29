@@ -10,9 +10,6 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 
 export default function Footer() {
-  const brandName = process.env.REACT_APP_COMPANY_N;
-  // const brandLogo = process.env.REACT_APP_LOGO
-
   const socialLinks = [
     {
       name: "Facebook",
@@ -65,7 +62,7 @@ export default function Footer() {
           <div className="row mt-4 pb-5 footer">
             <div className="col-lg-4">
               <Link to="/">
-                <img src={logoWhite} alt={brandName} />
+                <img src={logoWhite} alt={"Emergency Paisa"} />
               </Link>
               <p className="text-white mt-3">
                 SUBURBAN FINANCE AND INVESTMENT PRIVATE LIMITED is a Non-Banking

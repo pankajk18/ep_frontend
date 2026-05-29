@@ -5,6 +5,7 @@ import SwitchAccountIcon from "@mui/icons-material/SwitchAccount";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import { Link } from "react-router-dom";
+import { buildImageUrl } from "../../../Utils/common";
 
 const BlogListingCard = ({ blog }) => {
   return (
@@ -14,9 +15,7 @@ const BlogListingCard = ({ blog }) => {
     >
       <img
         src={
-          blog?.wb_banner_image_url?.includes("http")
-            ? blog.wb_banner_image_url
-            : defaultImg
+          buildImageUrl({ imageName: blog.wb_thumb_image_url }) ?? defaultImg
         }
         className="blog-card-img"
         alt={blog?.wb_title || "Blog "}
@@ -50,7 +49,7 @@ const BlogListingCard = ({ blog }) => {
           {blog.wb_title}
         </h5>
 
-        <p className="card-text text-muted py-2  text-capitalize text-lowercase truncate-3-lines">
+        <p className="card-text text-muted my-2  text-capitalize text-lowercase truncate-3-lines">
           {/* {blog.wb_short_description} */}
           {blog?.wb_short_description}...
         </p>

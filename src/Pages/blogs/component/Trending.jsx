@@ -8,12 +8,13 @@ import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import defaultImage from "../../../assets/emp-blog-thum.png";
+import { buildImageUrl } from "../../../Utils/common";
 
 export default function Trending() {
   const { data: popularBlogs } = useQuery({
     queryKey: ["popular-blogs"],
     queryFn: async () => {
-      const res = await axios.get(`https://api.crmpaisa.in/get-popular-blogs`);
+      const res = await axios.get(`https://api.crmpaisa.com/get-popular-blogs`);
       return res.data?.data || [];
     },
   });
@@ -134,12 +135,6 @@ export default function Trending() {
     ],
   };
 
-  const buildImageUrl = (image) => {
-    if (!image) return null;
-    if (image.startsWith("http")) return image;
-    return defaultImage; // Fallback to default image if the URL is not valid
-  };
-
   return (
     <div className="popular-blog-slider my-5">
       <div className="col-lg-12">
@@ -157,7 +152,9 @@ export default function Trending() {
       <div className="row g-0 mb-4">
         <Slider {...settings}>
           {blogs.map((item, index) => {
-            const imageUrl = buildImageUrl(item.wb_thumb_image_url);
+            const imageUrl = buildImageUrl({
+              imageName: item.wb_thumb_image_url,
+            });
             return (
               <Link
                 key={index}

@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import aboutTop from "../../assets/blog-banner-thum.png";
+import React from "react";
 import { Link, useParams } from "react-router-dom";
 import BlogListingCard from "./component/BlogListingCard";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { slugToTitle } from "./blogs.utils";
+import BlogHeader from "./component/BlogHeader";
 
 export default function BlogCategories() {
   const { category } = useParams(); // 👈 get from URL
@@ -14,7 +14,7 @@ export default function BlogCategories() {
     queryKey: ["categories", category],
     queryFn: async () => {
       const res = await axios.get(
-        `https://api.crmpaisa.in/get-blogs-data?category=${categoryTitle}`,
+        `https://api.crmpaisa.com/get-blogs-data?category=${categoryTitle}`,
       );
       return res.data;
     },
@@ -25,36 +25,14 @@ export default function BlogCategories() {
 
   return (
     <>
+      <BlogHeader
+        title={"Categories"}
+        description={
+          "Discover trending topics, expert opinions, and practical financial advice-all in one place."
+        }
+      />
       {/* Banner Serion */}
-      <div className="ms-hero-banner-sec" style={{ paddingTop: "80px" }}>
-        <div className="container">
-          <div className="row  align-items-center">
-            <div className="col-lg-6">
-              <div className="ms-banner-heading">
-                <span className="ms-bg-secondary py-2 px-4 rounded-2 fs-5">
-                  {" "}
-                  Categories
-                </span>
-                <h1
-                  className="fw-lighter fs-5 pt-3 fw-medium"
-                  style={{ lineHeight: "30px" }}
-                >
-                  Discover trending topics, expert opinions, and practical
-                  financial advice-all in one place.
-                </h1>
-              </div>
-            </div>
-            <div className="col-lg-6" style={{ textAlign: "right" }}>
-              <img
-                src={aboutTop}
-                alt="EP"
-                className="img-fluid"
-                style={{ marginTop: "30" }}
-              />
-            </div>
-          </div>
-        </div>
-      </div>
+
       {/* End */}
       <div className="container py-5">
         {loading && <p className="text-center">Loading...</p>}

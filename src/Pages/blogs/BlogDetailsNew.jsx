@@ -1,17 +1,22 @@
 import React from "react";
+import { Link, useParams } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+
 import HomeFilledIcon from "@mui/icons-material/HomeFilled";
-import pic from "../../assets/banner_lms.jpg.jpeg";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import SwitchAccountIcon from "@mui/icons-material/SwitchAccount";
-import { Link, useParams } from "react-router-dom";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
+
+import pic from "../../assets/banner_lms.jpg.jpeg";
 import appThum from "../../assets/loan-thum.png";
 
 import RecentPost from "./component/RecentPost";
 import Trending from "./component/Trending";
-import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
+import SEO from "../../component/SEO";
+
 import { createSlug } from "./blogs.utils";
+import { buildImageUrl } from "../../Utils/common";
 
 export default function BlogDetailsNew() {
   const { slug } = useParams();
@@ -20,7 +25,7 @@ export default function BlogDetailsNew() {
     queryKey: ["blog", slug],
     queryFn: async () => {
       const res = await axios.get(
-        `https://api.crmpaisa.in/get-blogs-data/${slug}`,
+        `https://api.crmpaisa.com/get-blogs-data/${slug}`,
       );
       return res.data;
     },
@@ -34,14 +39,33 @@ export default function BlogDetailsNew() {
     queryKey: ["categories", slug],
     queryFn: async () => {
       const res = await axios.get(
-        `https://api.crmpaisa.in/get-blogs-category-count`,
+        `https://api.crmpaisa.com/get-blogs-category-count`,
       );
       return res.data?.data || [];
     },
   });
 
+  const currentBlogData = data?.[0] || {}; // Assuming API returns an array, take the first item
+
   return (
     <>
+      {/* react helmet seo */}
+      <SEO
+        title={currentBlogData.wb_seo_title || currentBlogData.wb_title}
+        description={currentBlogData.wb_short_description}
+        keywords={currentBlogData.wb_seo_keyword}
+        image={`${currentBlogData.wb_thumb_image_url}`}
+        url={`${window.location.href} || ${currentBlogData.wb_slug}`}
+        type="article"
+        publishedTime={currentBlogData.wb_publish_date}
+        section={currentBlogData.wb_blog_category_name}
+        tags={[
+          currentBlogData.wb_blog_category_name,
+          "Personal Loan",
+          "Instant Loan",
+        ]}
+      />
+
       {data?.length === 0 ? (
         <p>Not found</p>
       ) : (
@@ -136,7 +160,12 @@ export default function BlogDetailsNew() {
                   </div>
 
                   <img
-                    src={pic}
+                    src={
+                      buildImageUrl({
+                        imageName:
+                          item.wb_banner_image_url || item.wb_thumb_image_url,
+                      }) ?? pic
+                    }
                     alt=""
                     className="rounded"
                     style={{ width: "100%" }}
@@ -144,7 +173,7 @@ export default function BlogDetailsNew() {
 
                   {/* editor section start */}
                   <div
-                    className="pt-5 fs-6"
+                    className="pt-5 fs-6 blog-details-content"
                     dangerouslySetInnerHTML={{
                       __html: item?.wb_long_description,
                     }}
@@ -172,9 +201,14 @@ export default function BlogDetailsNew() {
                         <h4 className="text pt-3">
                           Instant Loans at Your Fingertips
                         </h4>
-                        <div className="ms-bg-secondary py-3  rounded-2 text-white fw-bold text-center mt-4">
+                        <a
+                          href="https://play.google.com/store/apps/details?id=com.suburban.emergency_paisa"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="ms-bg-secondary py-3  text-decoration-none d-block rounded-2 text-white fw-bold text-center mt-4"
+                        >
                           Download App
-                        </div>
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -226,9 +260,8 @@ export default function BlogDetailsNew() {
                   </div>
 
                   {/* Explore venture */}
-                  <div className=" my-4">
+                  {/* <div className=" my-4">
                     <div className="p-4 rounded bg-light shadow-lg border">
-                      {/* Content */}
                       <div className="row">
                         <div className="col-12">
                           <h5
@@ -255,7 +288,7 @@ export default function BlogDetailsNew() {
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </React.Fragment>

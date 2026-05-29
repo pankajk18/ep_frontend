@@ -197,22 +197,29 @@ body {
   padding: 10px 20px;
   border-radius: 30px;
 }
-
 /* Banner css */
 .ms-hero-banner-sec {
-  /* background-image: linear-gradient(270deg, var(--ms-bg-g-color1), var(--ms-bg-g-color2)); */
   font-size: 50px;
   font-weight: 600;
-  padding: 130px 0 0;
+  margin-top: 80px;
   padding-bottom: 20px;
   color: var(--ms-bg-white);
-  background-image: linear-gradient(-270deg, #05335a 70%, #1973be 100%);
+  background-image:
+    /* url("./assets/blog-banner-thum.png"), */ linear-gradient(
+    -270deg,
+    #05335a 70%,
+    #1973be 100%
+  );
+  /* background-size: 45vw auto, cover;
+  background-repeat: no-repeat, no-repeat;
+  background-position: bottom right, center; */
 }
 
 .ms-banner-heading {
   font-size: 15px;
   font-weight: 600;
-  /* padding: 0 70px 0px 0; */
+  /* padding: 90px 0; */
+  padding: 0 70px 0px 0;
 }
 
 .ms-arrow-icon {

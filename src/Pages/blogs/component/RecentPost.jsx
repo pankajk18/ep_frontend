@@ -7,9 +7,7 @@ export default function RecentPost() {
   const { blogs } = useBlogs();
 
   const blogData =
-    blogs?.data && blogs?.data?.length > 4
-      ? blogs?.data?.slice(0, 4)
-      : blogs?.data || [];
+    blogs && blogs?.length > 4 ? blogs?.slice(0, 4) : blogs || [];
   return (
     <>
       <h3 className="fw-bold fs-5">Recent Blogs</h3>
