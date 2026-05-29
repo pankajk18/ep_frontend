@@ -11,8 +11,8 @@ export default function RecentPost() {
   return (
     <>
       <h3 className="fw-bold fs-5">Recent Blogs</h3>
-      <div className="row g-2">
-        {blogData.map((blog) => (
+      <div className="row g-2 recent-blog-list">
+        {blogData?.map((blog) => (
           <div
             className="col-md-12 col-lg-12 border-bottom pb-4"
             key={blog.wb_id}

@@ -163,7 +163,9 @@
 .popular-blog-slider .slick-dots li button:before {
   color: #1d4ed8;
 }
-
+.recent-blog-list div:last-child {
+  border-bottom: none !important;
+}
 .breadcrumb-blog {
   padding: 10px 15px;
   background-color: #e2e4e7;
