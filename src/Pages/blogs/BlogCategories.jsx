@@ -21,7 +21,8 @@ export default function BlogCategories() {
     enabled: !!category, // ✅ only run if slug is available
   });
 
-  const blogs = data?.data || [];
+  const blogs =
+    data?.data?.filter((blog) => +blog.wb_publish_status === 1) || [];
 
   return (
     <>
@@ -47,7 +48,7 @@ export default function BlogCategories() {
 
             <div className="row g-4">
               {blogs.map((blog, index) => (
-                <div className="col-md-6 col-lg-4" key={index}>
+                <div className="col-md-6 col-lg-4" key={blog.wb_id}>
                   <BlogListingCard blog={blog} />
                 </div>
               ))}
