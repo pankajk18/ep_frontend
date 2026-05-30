@@ -7,7 +7,6 @@ import AppScreen from "../component/AppScreen";
 import Faq from "../component/Faq";
 import { Helmet } from "react-helmet";
 import QuickLinkPage from "../component/QuickLinkPages";
-import PaytmGatewa from "./PaytmGateway/PaytmGatewa";
 
 export default function Home() {
   return (
@@ -22,9 +21,9 @@ export default function Home() {
         />
         <link rel="canonical" href="https://emergencypaisa.com/" />
       </Helmet>
+
       <HeroBanner />
 
-      <PaytmGatewa />
       <HomeAbout />
       <HomeServices />
       <Feature />

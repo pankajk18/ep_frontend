@@ -6,6 +6,7 @@ import payULogo from "../assets/payu-logo.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import WarningAmberOutlinedIcon from "@mui/icons-material/WarningAmberOutlined";
 import { Helmet } from "react-helmet";
+import Logo from "../assets/logo.png";
 
 export default function PayNow() {
   const PayNowTag = [
@@ -16,9 +17,6 @@ export default function PayNow() {
     { id: "05", name: "No Hidden Charges" },
     { id: "06", name: "EMI Calculation" },
   ];
-
-  const brandName = process.env.REACT_APP_COMPANY_N;
-  const brandLogo = process.env.REACT_APP_LOGO;
 
   // States
   const [getPancard, setPancard] = useState("");
@@ -589,7 +587,7 @@ export default function PayNow() {
 
           <div className="col-lg-6 ms-right-wrap p-5">
             <Link className="navbar-brand" to="/" style={{ margin: "0 auto" }}>
-              <img src={`/${brandLogo}`} alt={brandName} />
+              <img src={Logo} alt="Emergency Paisa" />
             </Link>
 
             <p className="ms-text-secondary fs-6 pt-5">

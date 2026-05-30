@@ -1,13 +1,106 @@
+@import url("./Pages/blogs/blog.css");
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family:
+    source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.truncate-2-lines {
+  display: -webkit-box; /* Required for line-clamp to work */
+  -webkit-line-clamp: 2; /* Limits text to exactly 2 lines */
+  -webkit-box-orient: vertical; /* Sets the direction of the box */
+  overflow: hidden; /* Hides any text beyond the 2nd line */
+}
+.truncate-3-lines {
+  display: -webkit-box; /* Required for line-clamp to work */
+  -webkit-line-clamp: 3; /* Limits text to exactly 3 lines */
+  -webkit-box-orient: vertical; /* Sets the direction of the box */
+  overflow: hidden; /* Hides any text beyond the 3rd line */
+}
+
+.fs-12 {
+  font-size: 12px;
+}
+.fs-14 {
+  font-size: 14px;
+}
+
+/* //Animation a*/
+@keyframes morphRotate {
+  0% {
+    transform: scale(1) rotate(0deg);
+    border-radius: 0%;
+  }
+
+  100% {
+    transform: scale(2) rotate(45deg);
+    border-radius: 50%;
+  }
+}
+
+.el1,
+.el2,
+.el3,
+.el4 {
+  animation: morphRotate 3s ease-in-out infinite alternate;
+}
+
+/* Animation ScaleImg */
+@keyframes subtleRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(2deg);
+  }
+}
+
+.thumb-style-four {
+  animation: subtleRotate 3s ease-in-out infinite alternate;
+}
+
+/* Animation */
+.feature-topic-wrap li {
+  transform: translateX(100px);
+  opacity: 0;
+  transition:
+    transform 1s ease,
+    opacity 1s ease;
+}
+
+/* Active state */
+.feature-topic-wrap li.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Stagger */
+.feature-topic-wrap li:nth-child(1) {
+  transition-delay: 0s;
+}
+
+.feature-topic-wrap li:nth-child(2) {
+  transition-delay: 0.3s;
+}
+
+.feature-topic-wrap li:nth-child(3) {
+  transition-delay: 0.6s;
+}
+
+.feature-topic-wrap li:nth-child(4) {
+  transition-delay: 0.9s;
+}
+
+.feature-topic-wrap li:nth-child(5) {
+  transition-delay: 1.2s;
 }
