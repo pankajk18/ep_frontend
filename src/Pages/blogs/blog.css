@@ -177,7 +177,9 @@
   margin-bottom: 1rem;
 }
 .blog-details-content :is(p) {
-  line-height: 1.6;
+  line-height: 1.65;
+  font-size: 1.1rem;
+  font-weight: 400;
 }
 
 .blog-details-content h2,

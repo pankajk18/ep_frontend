@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import loanAmount from "../assets/loan.jpg.jpeg";
-import aadharLoan from "../assets/byaadhar.jpg.jpeg";
+import loanAmount from "../assets/loan.webp";
+import aadharLoan from "../assets/byaadhar.webp";
 import "../css/quick.css";
 
 export default function QuickLinkPages() {
